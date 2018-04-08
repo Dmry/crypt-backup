@@ -21,6 +21,13 @@ EXTERNAL=<fill in external disk locations (e.g. /dev/sdb) here>;
 INTERNAL=<fill in internal disk locations (e.g. /dev/sda1) here>;
 FILENAME=<fill in filename.img of backup here (e.g. computer.img)>;
 ```  
+For example `nano backup.sh` and change into:  
+```shell
+EXTERNAL=/dev/sdb;
+INTERNAL=/dev/sda1;
+FILENAME=computer.img;
+```
+
 
 ### Workings
 The script will mount the encrypted disk created above.
