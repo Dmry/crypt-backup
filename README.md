@@ -23,7 +23,13 @@ FILENAME=<fill in filename.img of backup here (e.g. computer.img)>;
 ```  
 
 ### Workings
-The script will mount the encrypted disk created above. Next, it creates a folder named backup on your destination drive, so please check if there are any conflicts before running. Finally it creates a disk image named FILENAME.img of INTERNAL on EXTERNAL. You can daemonize the process if you backup a server over SSH, so the backup process will keep running when you close the SSH session. After the backup is finished, the LUKS container will be dismounted and closed automatically.
+The script will mount the encrypted disk created above.
+ Next, it creates a folder named backup on your destination drive,
+ so please check if there are any conflicts before running.
+ Finally it creates a disk image named FILENAME.img of INTERNAL on EXTERNAL.
+ It will ask your if you want to daemonize the process 
+ so the backup process will keep running when you close an SSH session.
+ When the backup is finished, the LUKS container will be dismounted and closed automatically.
 
 ### Set permissions and run script
 cd into the directory containing backup.sh
