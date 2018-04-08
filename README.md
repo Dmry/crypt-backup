@@ -15,7 +15,7 @@ sudo cryptsetup luksClose /dev/mapper/backup
 ### Set permissions and run script
 cd into the directory containing backup.sh
 
-When running for the first time:
+When running for the first time 
 `sudo chmod u+x backup.sh`
 
 Then run
@@ -24,7 +24,7 @@ Then run
 ### Kill when daemonized:
 `ps -ef | grep dmcrypt`
 
-The second number is the PID. Kill the process:
+The second number is the PID. Kill the process using 
 `sudo kill <pid>`
 
 # Restore backup
