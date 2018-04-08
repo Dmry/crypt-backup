@@ -49,7 +49,7 @@ Then run
 To keep the process running in the background press CTRL+Z while it is creating the backup. Then type `bg` followed by `disown` if you're in an ssh session.
 
 ### Kill when daemonized:
-`ps -ef | grep dd`
+`ps -ef | grep "dd if="`
 
 The second number is the PID. Kill the process using 
 `sudo kill <pid>`
