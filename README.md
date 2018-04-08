@@ -31,7 +31,7 @@ FILENAME=computer.img;
 
 ### Workings
 The script will mount the encrypted disk created above.
- Next, it creates a folder named backup on your destination drive,
+ Next, it creates a folder named backup in your /media folder,
  so please check if there are any conflicts before running.
  Finally it creates a disk image named FILENAME.img of INTERNAL on EXTERNAL.
  When the backup is finished, the LUKS container will be dismounted and closed automatically.
@@ -47,7 +47,7 @@ Then run
 
 Alternatively, when in an SSH session the process can be daemonized using:  
 WARNING: This assumes the locations in the script are correct.  
-`(echo y | nohup myprocess) &`
+`sudo (echo y | nohup myprocess) &`
 
 ### Kill when daemonized:
 `ps -ef | grep dmcrypt`
