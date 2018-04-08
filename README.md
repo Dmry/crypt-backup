@@ -45,12 +45,10 @@ When running for the first time
 Then run
 `./backup.sh`  
 
-Alternatively, when in an SSH session the process can be daemonized using:  
-WARNING: This assumes the locations in the script are correct.  
-`sudo (echo y | nohup myprocess) &`
+To keep the process running in the background press CTRL+Z while it is creating the backup. Then type `bg` followed by `disown` if you're in an ssh session.
 
 ### Kill when daemonized:
-`ps -ef | grep dmcrypt`
+`ps -ef | grep dd`
 
 The second number is the PID. Kill the process using 
 `sudo kill <pid>`
