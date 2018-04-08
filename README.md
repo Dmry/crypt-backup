@@ -37,5 +37,5 @@ cryptsetup luksOpen /path/to/drive/with/backup backup
 mount /dev/mapper/backup /media/backup
 ```
 
-Replace /path/to/drive/of/destination with the correct path found with fdisk.
+Replace /path/to/drive/of/destination with the correct path found with fdisk.  
 `sudo dd if=media/backup/server.img of=/path/to/drive/of/destination status=progress`
