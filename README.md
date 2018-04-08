@@ -39,7 +39,8 @@ Then run
 `./backup.sh`  
 
 Alternatively, when in an SSH session the process can be daemonized using:
-nohup ./backup.sh
+WARNING: This assumes the locations in the script are correct.
+`(echo y | nohup myprocess) &`
 
 ### Kill when daemonized:
 `ps -ef | grep dmcrypt`
