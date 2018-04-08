@@ -21,19 +21,11 @@ case "$RESPONSE" in
                 cryptsetup luksOpen $EXTERNAL backup
                 mount /dev/mapper/backup /media/backup
 
-                read -r -p "Daemonize process? (Recommended for SSH sessions)" DAEMONIZE
-                case $DAEMONIZE in
-                        [yY][eE][sS]|[yY])
-				cd /media/backup
-                                nohup dd if=$INTERNAL of=/media/backup/$FILENAME
-				umount /media/backup
-				cryptsetup close backup
-				;;
-                        *)
-                        dd if=$INTERNAL of=/media/backup/$FILENAME status=progress
-			umount /media/backup
-			cryptsetup close backup
-                        ;;
+		cd /media/backup
+		echo "Creating backup, this can take a while.."
+                dd if=$INTERNAL of=/media/backup/$FILENAME
+		umount /media/backup
+		cryptsetup close backup
                 esac
                 ;;
         *)
