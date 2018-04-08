@@ -27,8 +27,6 @@ The script will mount the encrypted disk created above.
  Next, it creates a folder named backup on your destination drive,
  so please check if there are any conflicts before running.
  Finally it creates a disk image named FILENAME.img of INTERNAL on EXTERNAL.
- It will ask your if you want to daemonize the process 
- so the backup process will keep running when you close an SSH session.
  When the backup is finished, the LUKS container will be dismounted and closed automatically.
 
 ### Set permissions and run script
@@ -38,7 +36,10 @@ When running for the first time
 `sudo chmod u+x backup.sh`
 
 Then run
-`./backup.sh`
+`./backup.sh`  
+
+Alternatively, when in an SSH session the process can be daemonized using:
+nohup ./backup.sh
 
 ### Kill when daemonized:
 `ps -ef | grep dmcrypt`
