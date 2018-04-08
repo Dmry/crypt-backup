@@ -25,9 +25,14 @@ case "$RESPONSE" in
                 case $DAEMONIZE in
                         [yY][eE][sS]|[yY])
 				cd /media/backup
-                                nohup dd if=$INTERNAL of=/media/backup/$FILENAME;;
+                                nohup dd if=$INTERNAL of=/media/backup/$FILENAME
+				umount /media/backup
+				cryptsetup close backup
+				;;
                         *)
                         dd if=$INTERNAL of=/media/backup/$FILENAME status=progress
+			umount /media/backup
+			cryptsetup close backup
                         ;;
                 esac
                 ;;
