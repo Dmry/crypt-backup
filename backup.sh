@@ -17,7 +17,7 @@ sudo fdisk -l | grep $INTERNAL
 read -r -p "Is this correct [Y/n]" RESPONSE
 case "$RESPONSE" in
         [yY][eE][sS]|[yY])
-                eclipse &>mkdir /media/backup
+                mkdir /media/backup &>dev/null
                 cryptsetup luksOpen $EXTERNAL backup
                 mount /dev/mapper/backup /media/backup
 
