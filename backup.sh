@@ -20,15 +20,14 @@ case "$RESPONSE" in
                 mkdir /media/backup >dev/null
                 cryptsetup luksOpen $EXTERNAL backup
                 mount /dev/mapper/backup /media/backup
-		cd /media/backup
 		echo "Creating backup, this can take a while.."
 		echo "Press ctrl+z and then type bg to continue in the background"
-                dd if=$INTERNAL of=/media/backup/$FILENAME status=progress > progress.log
-		echo "Finished backup, closing LUKS container." > progress.log
+                dd if=$INTERNAL of=/media/backup/$FILENAME status=progress > /media/backup/progress.log
+		echo "Finished backup, closing LUKS container." > /media/backup/progress.log
 		cd ~
 		umount /dev/mapper/backup
 		cryptsetup close backup
-		echo "LUKS container closed. Backup finished." > progress.log
+		echo "LUKS container closed. Backup finished." > /media/backup/progress.log
                 ;;
         *)
                 #or exit..
