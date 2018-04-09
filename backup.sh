@@ -17,12 +17,12 @@ sudo fdisk -l | grep $INTERNAL
 read -r -p "Is this correct [Y/n]" RESPONSE
 case "$RESPONSE" in
         [yY][eE][sS]|[yY])
-                mkdir /media/backup &>dev/null
+                mkdir /media/backup >dev/null
                 cryptsetup luksOpen $EXTERNAL backup
                 mount /dev/mapper/backup /media/backup
-
 		cd /media/backup
 		echo "Creating backup, this can take a while.."
+		echo "Press ctrl+z and then type bg to continue in the background"
                 dd if=$INTERNAL of=/media/backup/$FILENAME status=progress > progress.log
 		umount /dev/mapper/backup
 		cryptsetup close backup

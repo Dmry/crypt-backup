@@ -34,6 +34,7 @@ The script will mount the encrypted disk created above.
  Next, it creates a folder named backup in your /media folder,
  so please check if there are any conflicts before running.
  Finally it creates a disk image named FILENAME.img of INTERNAL on EXTERNAL.
+ Progress can be monitored with `sudo cat /media/backup/progress.log`.
  When the backup is finished, the LUKS container will be dismounted and closed automatically.
 
 ### Set permissions and run script
@@ -45,10 +46,11 @@ When running for the first time
 Then run
 `./backup.sh`  
 
-To keep the process running in the background press CTRL+Z while it is creating the backup. Then type `bg` followed by `disown` if you're in an ssh session.
+To keep the process running in the background press CTRL+Z while it is creating the backup. Then type `bg` followed by `disown` if you're in an ssh session.  
+Progress can be monitored live using `tail -f /media/backup/progress.log`.
 
 ### Kill when daemonized:
-`ps -ef | grep dd`
+`ps -ef | grep "dd if="`
 
 The second number is the PID. Kill the process using 
 `sudo kill <pid>`
