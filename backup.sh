@@ -1,4 +1,4 @@
-#! /bin/bash
+\#! /bin/bash
 
 EXTERNAL=<fill in external disk locations (e.g. /dev/sdb) here>;
 INTERNAL=<fill in internal disk locations (e.g. /dev/sda1) here>;
@@ -25,6 +25,7 @@ case "$RESPONSE" in
 		echo "Press ctrl+z and then type bg to continue in the background"
                 dd if=$INTERNAL of=/media/backup/$FILENAME status=progress > progress.log
 		echo "Finished backup, closing LUKS container." > progress.log
+		cd ~
 		umount /dev/mapper/backup
 		cryptsetup close backup
 		echo "LUKS container closed. Backup finished." > progress.log
