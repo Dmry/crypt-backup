@@ -24,7 +24,7 @@ case "$RESPONSE" in
 		cd /media/backup
 		echo "Creating backup, this can take a while.."
                 dd if=$INTERNAL of=/media/backup/$FILENAME status=progress > progress.log
-		umount /media/backup
+		umount /dev/mapper/backup
 		cryptsetup close backup
                 ;;
         *)
