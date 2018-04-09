@@ -24,8 +24,10 @@ case "$RESPONSE" in
 		echo "Creating backup, this can take a while.."
 		echo "Press ctrl+z and then type bg to continue in the background"
                 dd if=$INTERNAL of=/media/backup/$FILENAME status=progress > progress.log
+		echo "Finished backup, closing LUKS container." > progress.log
 		umount /dev/mapper/backup
 		cryptsetup close backup
+		echo "LUKS container closed. Backup finished." > progress.log
                 ;;
         *)
                 #or exit..
